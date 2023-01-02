@@ -3,7 +3,7 @@ from discord.ext import commands
 import requests
 
 # Tworzymy obiekt klienta Discord
-client = commands.Bot(command_prefix='/wiki')
+client = commands.Bot(command_prefix='/wiki', intents=discord.Intents.all())
 
 # Tworzymy komendę, która pozwala użytkownikowi wyszukać informacje w MediaWiki
 @client.command()
@@ -20,6 +20,10 @@ async def search(ctx, *, query):
 
     # Wysyłamy wiadomość na czacie
     await ctx.send(message)
+
+    # Wyświetlamy pytanie na konsoli
+    print(f'Zadano pytanie: {query}')
+
 
 # Token bota Discord
 TOKEN = 'YOUR_BOT_TOKEN'
